@@ -35,25 +35,22 @@ const inactiveIconThree = inactiveIconCollection[2];
 const inactiveIconFour = inactiveIconCollection[3];
 
 function toggleActive(e) {
-  imageToggle(e);
+  // Toggle active class for accordion tab
   e.currentTarget.classList.toggle("faq-accordion__question-tab--active");
-  //   console.log(e.currentTarget); Debugging purposes.
-  for (question of questionList) {
-    if (question === e.currentTarget) {
-      continue;
-    } else {
-      question.classList.remove("faq-accordion__question-tab--active"); // Reduces the max-height if it's not in focus.
-      question
-        .querySelector(".faq-accordion__question-icon--inactive")
-        .classList.add("faq-accordion__question-icon--active-state"); //Ensures plus sign is showing if not in focus.
-      question
-        .querySelector(".faq-accordion__question-icon--active")
-        .classList.remove("faq-accordion__question-icon--active-state"); // Ensures the minus sign is not showing if not in focus.
-      question
-        .querySelector(".faq-accordion__question-icon--active")
-        .classList.add("faq-accordion__question-icon--inactive-state"); // Sets the inactive state (sets display to none) on minus sign icon.
+  imageToggle(e);
+
+  // Close all other tabs and reset their icons
+  questionList.forEach((question) => {
+    if (question !== e.currentTarget) {
+      question.classList.remove("faq-accordion__question-tab--active");
+      question.querySelector(
+        ".faq-accordion__question-icon--active"
+      ).style.display = "none";
+      question.querySelector(
+        ".faq-accordion__question-icon--inactive"
+      ).style.display = "block";
     }
-  }
+  });
 }
 
 function imageToggle(e) {
@@ -64,15 +61,21 @@ function imageToggle(e) {
     ".faq-accordion__question-icon--inactive"
   );
 
-  //   console.log(activeIcon); Debugging Purposes
-  //   console.log(inactiveIcon); Debugging Purposes
-
-  activeIcon.classList.toggle("faq-accordion__question-icon--inactive-state");
-  activeIcon.classList.toggle("faq-accordion__question-icon--active-state");
-
-  inactiveIcon.classList.toggle("faq-accordion__question-icon--active-state");
-  inactiveIcon.classList.toggle("faq-accordion__question-icon--inactive-state");
+  // Toggle display of icons
+  if (activeIcon.style.display === "none" || !activeIcon.style.display) {
+    activeIcon.style.display = "block";
+    inactiveIcon.style.display = "none";
+  } else {
+    activeIcon.style.display = "none";
+    inactiveIcon.style.display = "block";
+  }
 }
+
+// Attach event listener to each question tab
+questionList.forEach((question) =>
+  question.addEventListener("click", toggleActive)
+);
+
 
 questionList.forEach((questionItem) => {
   questionItem.addEventListener("click", toggleActive);
