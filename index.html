@@ -1,48 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <script defer src="./script.js"></script>
+    <title>Frontend Mentor | FAQ accordion</title>
+  </head>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | FAQ accordion</title>
+  <body>
+    <!-- Background Image -->
+    <picture class="background-pattern-container">
+      <source
+        class="background-pattern--desktop"
+        media="only screen and (min-width: 430px)"
+        srcset="./assets/images/background-pattern-desktop.svg"
+      />
+      <img
+        class="background-pattern--mobile"
+        src="./assets/images/background-pattern-mobile.svg"
+        alt="background pattern"
+      />
+    </picture>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <!-- Accordion -->
+    <main class="faq-accordion">
+      <header class="faq-accordion__header-section">
+        <img
+          src="./assets/images/icon-star.svg"
+          alt="FAQ Section icon"
+          class="faq-accordion__star-icon"
+        />
+        <h1 class="faq-accordion__header-text">FAQs</h1>
+      </header>
 
-  FAQs
+      <!-- Accordion Question Tabs -->
+      <section
+        id="questions-container"
+        class="faq-accordion__questions-container"
+      >
+        <article id="first-question" class="faq-accordion__question-tab">
+          <div class="faq-accordion__question-title-container">
+            <h1 class="faq-accordion__question-title">
+              What is Frontend Mentor, and how will it help me?
+            </h1>
+            <div class="faq-accordion__question-icon-container">
+              <img
+                src="./assets/images/icon-minus.svg"
+                alt="Inactive Icon"
+                class="faq-accordion__question-icon--active faq-accordion__question-icon--inactive-state"
+                id="active-icon-one"
+              />
+              <img
+                src="./assets/images/icon-plus.svg"
+                alt="Active Icon"
+                class="faq-accordion__question-icon--inactive faq-accordion__question-icon--active-state"
+                id="inactive-icon-one"
+              />
+            </div>
+          </div>
+          <p class="faq-accordion__answer">
+            Frontend Mentor offers realistic coding challenges to help
+            developers improve their frontend coding skills with projects in
+            HTML, CSS, and JavaScript. It's suitable for all levels and ideal
+            for portfolio building.
+          </p>
+        </article>
 
-  What is Frontend Mentor, and how will it help me?
+        <hr class="faq-accordion__seperator" />
 
-  Frontend Mentor offers realistic coding challenges to help developers improve their 
-  frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for 
-  all levels and ideal for portfolio building.
+        <article id="second-question" class="faq-accordion__question-tab">
+          <div class="faq-accordion__question-title-container">
+            <h1 class="faq-accordion__question-title">
+              Is Frontend Mentor free?
+            </h1>
+            <div class="faq-accordion__question-icon-container">
+              <img
+                src="./assets/images/icon-minus.svg"
+                alt="Inactive Icon"
+                class="faq-accordion__question-icon--active faq-accordion__question-icon--inactive-state"
+                id="active-icon-two"
+              />
+              <img
+                src="./assets/images/icon-plus.svg"
+                alt="Active Icon"
+                class="faq-accordion__question-icon--inactive faq-accordion__question-icon--active-state"
+                id="inactive-icon-two"
+              />
+            </div>
+          </div>
+          <p class="faq-accordion__answer">
+            Yes, Frontend Mentor offers both free and premium coding challenges,
+            with the free option providing access to a range of projects
+            suitable for all skill levels.
+          </p>
+        </article>
 
-  Is Frontend Mentor free?
+        <hr class="faq-accordion__seperator" />
 
-  Yes, Frontend Mentor offers both free and premium coding challenges, with the free 
-  option providing access to a range of projects suitable for all skill levels.
+        <article id="third-question" class="faq-accordion__question-tab">
+          <div class="faq-accordion__question-title-container">
+            <h1 class="faq-accordion__question-title">
+              Can I use Frontend Mentor projects in my portfolio?
+            </h1>
+            <div class="faq-accordion__question-icon-container">
+              <img
+                src="./assets/images/icon-minus.svg"
+                alt="Inactive Icon"
+                class="faq-accordion__question-icon--active faq-accordion__question-icon--inactive-state"
+                id="active-icon-three"
+              />
+              <img
+                src="./assets/images/icon-plus.svg"
+                alt="Active Icon"
+                class="faq-accordion__question-icon--inactive faq-accordion__question-icon--active-state"
+                id="inactive-icon-three"
+              />
+            </div>
+          </div>
+          <p class="faq-accordion__answer">
+            Yes, you can use projects completed on Frontend Mentor in your
+            portfolio. It's an excellent way to showcase your skills to
+            potential employers!
+          </p>
+        </article>
 
-  Can I use Frontend Mentor projects in my portfolio?
+        <hr class="faq-accordion__seperator" />
 
-  Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
-  way to showcase your skills to potential employers!
-
-  How can I get help if I'm stuck on a Frontend Mentor challenge?
-  
-  The best place to get help is inside Frontend Mentor's Discord community. There's a help 
-  channel where you can ask questions and seek support from other community members.
-
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+        <article id="fourth-question" class="faq-accordion__question-tab">
+          <div class="faq-accordion__question-title-container">
+            <h1 class="faq-accordion__question-title">
+              How can I get help if I'm stuck on a challenge?
+            </h1>
+            <div class="faq-accordion__question-icon-container">
+              <img
+                src="./assets/images/icon-minus.svg"
+                alt="Inactive Icon"
+                class="faq-accordion__question-icon--active faq-accordion__question-icon--inactive-state"
+                id="active-icon-four"
+              />
+              <img
+                src="./assets/images/icon-plus.svg"
+                alt="Active Icon"
+                class="faq-accordion__question-icon--inactive faq-accordion__question-icon--active-state"
+                id="inactive-icon-four"
+              />
+            </div>
+          </div>
+          <p class="faq-accordion__answer">
+            The best place to get help is inside Frontend Mentor's Discord
+            community. There's a help channel where you can ask questions and
+            seek support from other community members.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
 </html>
